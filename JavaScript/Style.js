@@ -28,19 +28,14 @@ async function BuscarDados(userNome){
     })
 
     Usuario(userNome).then(dadosUser => {
-        let dadosImagem = dadosUser.avatar_url
-        let imgusuario = document.querySelector(`#imagem`)
-        imgusuario.src = dadosImagem
-
-        let dadosNome = document.querySelector("#NomeUsuario")
-        let dadosname = dadosUser.name
-        dadosNome.innerHTML = dadosname
-
-        document.querySelector('#Aparecer').style.display = 'block'
-
-        let dadosBioUser = document.querySelector('#bio')
-        let dadosBio = dadosUser.bio
-        dadosBioUser.innerHTML = `${dadosBio ?? 'Usuário não tem Bio 😪'} `
+        let userInfo = `<div class="info">
+                            <img src="${dadosUser.avatar_url}" alt="Foto do Perfil do Usuário">
+                            <div class="data">
+                                <h1>${dadosUser.name ?? `Não possui nome cadastrado 😪`}</h1>
+                                <p>${dadosUser.bio ?? `Não possui bio cadastrado 😪`}</p>
+                            </div>
+                        <div/>` 
+        document.querySelector('.profile-data').innerHTML = userInfo
     })
 }
 
