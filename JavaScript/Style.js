@@ -46,7 +46,7 @@ function BuscarRepos(userNome){
     Repos(userNome).then(reposData => {
         let repositoriositens = ""
         reposData.forEach(repos => {
-            repositoriositens += `<li><a href="${repos.html_url} target="_blank" ">${repos.name}</a></li>`
+            repositoriositens += `<li><a href="${repos.html_url}" target="_blank">${repos.name}</a></li>`
         })
         document.querySelector('.profile-data').innerHTML += `<div class="repositories section">
                                                                     <h2>Repositórios</h2>
