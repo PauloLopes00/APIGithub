@@ -1,8 +1,11 @@
-
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    text-decoration: none;
+    color: var(--cor-branca);
+    list-style: none;
+    max-width: 100%;
 }
 
 body{
@@ -87,7 +90,7 @@ input[type=button]:hover{
   }
 
 .profile-data .info img{
-    width: 50%;
+    width: 40%;
     border-radius: 50%;
     border: 10px solid hotpink;
 }
@@ -102,4 +105,81 @@ input[type=button]:hover{
     font-size: 15px;  
     font-weight: 400;
     line-height: 23px;
+}
+
+/* REPOSITORIES */
+
+.profile-data .repositories h2{
+    margin-bottom: 30px;
+    text-align: center;
+}
+  
+.profile-data .repositories ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+  
+.profile-data .repositories ul li a{
+    padding: 20px;
+    border: 1px solid grey;  
+    margin: 20px;
+    display: block;
+    border-radius: 7px;
+    transition: 0.3s ease-in-out;
+  }
+  
+.profile-data .repositories ul li a:hover{
+    background-color:hotpink;
+    color: #fff
+}
+
+.section{
+    padding: 70px 0;
+}
+  
+.profile-data.hide{
+    display: none;
+}
+
+@media (max-width: 1280px) {
+    .container {
+      flex-direction: column;
+      width: 90%;
+      border-radius: 20px;
+    }
+  
+    .container .Conteudo-container {
+      width: 100%;
+    }
+  
+    .container .Conteudo-container h1 {
+      font-size: 24px;
+      text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .container .Conteudo-container #input-search,
+    .container .Conteudo-container #btn-search
+    {
+      width: 100%;
+    }
+}
+  
+@media (max-width: 425px) {
+    main {
+      padding: 15% 0;    
+    }
+  
+    .container .profile-data .info img{
+      margin-bottom: 20px;
+    }
+  
+    .container .profile-data .info img,
+    .container .profile-data .info .data
+    {
+      width: 100%;
+      padding: 0;
+    }
 }

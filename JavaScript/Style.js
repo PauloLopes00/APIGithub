@@ -23,10 +23,6 @@ async function Usuario(userNome) {
 }
 
 async function BuscarDados(userNome){
-    Repos(userNome).then(reposData => {
-        console.log(reposData)
-    })
-
     Usuario(userNome).then(dadosUser => {
         let userInfo = `<div class="info">
                             <img src="${dadosUser.avatar_url}" alt="Foto do Perfil do Usuário">
@@ -36,10 +32,25 @@ async function BuscarDados(userNome){
                             </div>
                         <div/>` 
         document.querySelector('.profile-data').innerHTML = userInfo
+
+        BuscarRepos(userNome)
     })
 }
 
 async function Repos(userNome) {
     const response = await fetch(`https://api.github.com/users/${userNome}/repos`)
     return await response.json()
+}
+
+function BuscarRepos(userNome){
+    Repos(userNome).then(reposData => {
+        let repositoriositens = ""
+        reposData.forEach(repos => {
+            repositoriositens += `<li><a href="${repos.html_url} target="_blank" ">${repos.name}</a></li>`
+        })
+        document.querySelector('.profile-data').innerHTML += `<div class="repositories section">
+                                                                    <h2>Repositórios</h2>
+                                                                    <ul>${repositoriositens}</ul>
+                                                               </div>`
+    })
 }
